@@ -1,2 +1,5 @@
+G:\ChatusBackend\src\main\java\com\niit\chatusbackend\model\User.java
 G:\ChatusBackend\src\main\java\com\niit\chatusbackend\config\ApplicationContextConfig.java
 G:\ChatusBackend\src\main\java\com\niit\chatusbackend\controller\IndexController.java
+G:\ChatusBackend\src\main\java\com\niit\chatusbackend\dao\impl\UserDAOImpl.java
+G:\ChatusBackend\src\main\java\com\niit\chatusbackend\dao\UserDAO.java
