@@ -22,6 +22,7 @@ public class User {
 	private String address;
 	private String gender;
 	private String status;
+	private String Is_Online;
 	public int getId() {
 		return id;
 	}
@@ -81,6 +82,12 @@ public class User {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getIs_Online() {
+		return Is_Online;
+	}
+	public void setIs_Online(String is_Online) {
+		Is_Online = is_Online;
 	}
 
 	
