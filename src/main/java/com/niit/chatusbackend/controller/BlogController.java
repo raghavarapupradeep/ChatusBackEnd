@@ -47,4 +47,10 @@ public class BlogController {
 		blogDAO.delete(blog1);
 		return new ResponseEntity<Blog>(blog,HttpStatus.OK);
 	}
+	/*@DeleteMapping(value="/deleteblog/{blogid}")
+	public ResponseEntity<Blog> deleteblog(Blog blog,@PathVariable("blogid") int blogid){
+		Blog blog1=blogDAO.get(blogid);
+		blogDAO.delete(blog1);
+		return new ResponseEntity<Blog>(blog,HttpStatus.OK);
+	}*/
 }

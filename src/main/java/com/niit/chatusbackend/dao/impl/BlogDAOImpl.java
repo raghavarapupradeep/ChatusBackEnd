@@ -20,6 +20,7 @@ public class BlogDAOImpl implements BlogDAO{
 		this.sessionFactory=sessionFactory;
 	}
 @Transactional
+/*@Transactional*/
 	public boolean saveOrUpdate(Blog blog) {
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(blog);
