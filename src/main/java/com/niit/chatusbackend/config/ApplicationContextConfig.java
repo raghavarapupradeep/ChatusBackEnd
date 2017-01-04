@@ -14,11 +14,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.niit.chatusbackend.dao.BlogDAO;
 import com.niit.chatusbackend.dao.UserDAO;
-import com.niit.chatusbackend.dao.impl.BlogDAOImpl;
 import com.niit.chatusbackend.dao.impl.UserDAOImpl;
-import com.niit.chatusbackend.model.Blog;
 import com.niit.chatusbackend.model.User;
 
 
@@ -59,7 +56,6 @@ public class ApplicationContextConfig {
 		sessionBuilder.addProperties(getHibernateProperties());
 	
 		sessionBuilder.addAnnotatedClasses(User.class);
-		sessionBuilder.addAnnotatedClass(Blog.class);
 		System.out.println("Session");
 		
 		return sessionBuilder.buildSessionFactory();
@@ -85,11 +81,4 @@ public class ApplicationContextConfig {
 	public UserDAO getUserDao(SessionFactory sessionFactory) {
 			return new UserDAOImpl(sessionFactory);
 	}
-	@Autowired
-	@Bean(name="blogDAO")
-	public BlogDAO getBlogDAO(SessionFactory sessionFactory){
-		System.out.println("blog is done");
-		return new BlogDAOImpl(sessionFactory);
-	}
-	
 	}

@@ -1,9 +1,5 @@
 com\niit\chatusbackend\dao\impl\UserDAOImpl.class
-com\niit\chatusbackend\controller\BlogController.class
-com\niit\chatusbackend\model\User.class
 com\niit\chatusbackend\dao\UserDAO.class
-com\niit\chatusbackend\controller\UserController.class
-com\niit\chatusbackend\dao\impl\BlogDAOImpl.class
 com\niit\chatusbackend\config\ApplicationContextConfig.class
-com\niit\chatusbackend\dao\BlogDAO.class
-com\niit\chatusbackend\model\Blog.class
+com\niit\chatusbackend\model\User.class
+com\niit\chatusbackend\controller\IndexController.class

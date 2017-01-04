@@ -1,9 +1,5 @@
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\model\Blog.java
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\controller\BlogController.java
 G:\ChatusBackend\src\main\java\com\niit\chatusbackend\model\User.java
 G:\ChatusBackend\src\main\java\com\niit\chatusbackend\config\ApplicationContextConfig.java
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\dao\BlogDAO.java
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\dao\impl\BlogDAOImpl.java
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\controller\UserController.java
+G:\ChatusBackend\src\main\java\com\niit\chatusbackend\controller\IndexController.java
 G:\ChatusBackend\src\main\java\com\niit\chatusbackend\dao\impl\UserDAOImpl.java
 G:\ChatusBackend\src\main\java\com\niit\chatusbackend\dao\UserDAO.java
