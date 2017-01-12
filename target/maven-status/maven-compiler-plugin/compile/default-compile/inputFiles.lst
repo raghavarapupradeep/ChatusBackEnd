@@ -1,5 +1,9 @@
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\model\User.java
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\config\ApplicationContextConfig.java
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\controller\IndexController.java
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\dao\impl\UserDAOImpl.java
-G:\ChatusBackend\src\main\java\com\niit\chatusbackend\dao\UserDAO.java
+G:\DTBATCH 8\ChatUsBackEnd\src\main\java\com\niit\chatusbackend\dao\UsersDAO.java
+G:\DTBATCH 8\ChatUsBackEnd\src\main\java\com\niit\chatusbackend\controller\UsersController.java
+G:\DTBATCH 8\ChatUsBackEnd\src\main\java\com\niit\chatusbackend\dao\impl\UsersDAOImpl.java
+G:\DTBATCH 8\ChatUsBackEnd\src\main\java\com\niit\chatusbackend\dao\BlogDAO.java
+G:\DTBATCH 8\ChatUsBackEnd\src\main\java\com\niit\chatusbackend\dao\impl\BlogDAOImpl.java
+G:\DTBATCH 8\ChatUsBackEnd\src\main\java\com\niit\chatusbackend\model\Blog.java
+G:\DTBATCH 8\ChatUsBackEnd\src\main\java\com\niit\chatusbackend\config\ApplicationContextConfig.java
+G:\DTBATCH 8\ChatUsBackEnd\src\main\java\com\niit\chatusbackend\controller\BlogController.java
+G:\DTBATCH 8\ChatUsBackEnd\src\main\java\com\niit\chatusbackend\model\Users.java

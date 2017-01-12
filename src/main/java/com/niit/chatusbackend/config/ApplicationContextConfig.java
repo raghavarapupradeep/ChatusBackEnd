@@ -15,11 +15,14 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.chatusbackend.dao.BlogDAO;
-import com.niit.chatusbackend.dao.UserDAO;
+import com.niit.chatusbackend.dao.FriendDAO;
+import com.niit.chatusbackend.dao.UsersDAO;
 import com.niit.chatusbackend.dao.impl.BlogDAOImpl;
-import com.niit.chatusbackend.dao.impl.UserDAOImpl;
+import com.niit.chatusbackend.dao.impl.FriendDAOImpl;
+import com.niit.chatusbackend.dao.impl.UsersDAOImpl;
 import com.niit.chatusbackend.model.Blog;
-import com.niit.chatusbackend.model.User;
+import com.niit.chatusbackend.model.Friend;
+import com.niit.chatusbackend.model.Users;
 
 
 @Configuration
@@ -58,8 +61,9 @@ public class ApplicationContextConfig {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
 	
-		sessionBuilder.addAnnotatedClasses(User.class);
+		sessionBuilder.addAnnotatedClasses(Users.class);
 		sessionBuilder.addAnnotatedClasses(Blog.class);
+		sessionBuilder.addAnnotatedClasses(Friend.class);
 		System.out.println("Session");
 		
 		return sessionBuilder.buildSessionFactory();
@@ -76,9 +80,11 @@ public class ApplicationContextConfig {
 	
 			
 	@Autowired
-	@Bean(name = "userDAO")
-	public UserDAO getUserDao(SessionFactory sessionFactory) {
-			return new UserDAOImpl(sessionFactory);
+	@Bean(name = "usersDAO")
+	public UsersDAO getUsersDao(SessionFactory sessionFactory) {
+		System.out.println("Usr is doen");
+			return new UsersDAOImpl(sessionFactory);
+		
 	}
 	@Autowired
 	@Bean(name = "blogDAO")
@@ -86,5 +92,10 @@ public class ApplicationContextConfig {
 		System.out.println("blog is done");
 			return new BlogDAOImpl(sessionFactory);
 	}
-	
+	@Autowired
+	@Bean(name = "friendDAO")
+	public FriendDAO getFriendDao(SessionFactory sessionFactory) {
+		System.out.println("Friend is done");
+			return new FriendDAOImpl(sessionFactory);
+	}
 	}
