@@ -19,6 +19,7 @@ public interface UsersDAO {
 	public Users authuser(String username, String password);
 
 	public Users profileof(String username);
+	public List<Users> nonfriends(int id);
 	
 	
 

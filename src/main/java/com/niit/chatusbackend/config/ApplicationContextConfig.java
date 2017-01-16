@@ -16,12 +16,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.chatusbackend.dao.BlogDAO;
 import com.niit.chatusbackend.dao.FriendDAO;
+import com.niit.chatusbackend.dao.JobDAO;
 import com.niit.chatusbackend.dao.UsersDAO;
 import com.niit.chatusbackend.dao.impl.BlogDAOImpl;
 import com.niit.chatusbackend.dao.impl.FriendDAOImpl;
+import com.niit.chatusbackend.dao.impl.JobDAOImpl;
 import com.niit.chatusbackend.dao.impl.UsersDAOImpl;
 import com.niit.chatusbackend.model.Blog;
 import com.niit.chatusbackend.model.Friend;
+import com.niit.chatusbackend.model.Job;
 import com.niit.chatusbackend.model.Users;
 
 
@@ -64,6 +67,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClasses(Users.class);
 		sessionBuilder.addAnnotatedClasses(Blog.class);
 		sessionBuilder.addAnnotatedClasses(Friend.class);
+		sessionBuilder.addAnnotatedClasses(Job.class);
 		System.out.println("Session");
 		
 		return sessionBuilder.buildSessionFactory();
@@ -97,5 +101,11 @@ public class ApplicationContextConfig {
 	public FriendDAO getFriendDao(SessionFactory sessionFactory) {
 		System.out.println("Friend is done");
 			return new FriendDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "jobDAO")
+	public JobDAO getJobDao(SessionFactory sessionFactory) {
+		System.out.println("Job is done");
+			return new JobDAOImpl(sessionFactory);
 	}
 	}

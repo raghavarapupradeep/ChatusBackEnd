@@ -70,13 +70,14 @@ public class UsersDAOImpl implements UsersDAO {
 	@Transactional
 	public Users authuser(String username, String password) {
 		String hql = "from Users where username= " + "'" + username + "'" + "and password= " + "'" + password + "'";
+		
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Users> list = query.list();
-		if (list == null) {
+		/*if (list == null) {
 			return null;
-		} else {
+		} else {*/
 			return list.get(0);
-		}
+		
 	}
 
 	@Transactional
@@ -90,6 +91,13 @@ public class UsersDAOImpl implements UsersDAO {
 		} else {
 			return list.get(0);
 		}
+	}
+	@Transactional
+	public List<Users> nonfriends(int id) {
+		String hql = "from Users where id !='"+id+"'";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<Users> list= query.list();
+		return list;
 	}
 
 	@Transactional

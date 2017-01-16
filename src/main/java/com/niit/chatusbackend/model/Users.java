@@ -17,6 +17,12 @@ public class Users {
 	private int id;
 	private String username;
 	private String role;
+	public char getIsonline() {
+		return isonline;
+	}
+	public void setIsonline(char isonline) {
+		this.isonline = isonline;
+	}
 	private String mail;
 	private String password;
 	private int mobile;
@@ -25,7 +31,14 @@ public class Users {
 	private Date dob;
 	private String gender;
 	private char status;
-	private String isonline;
+	private char isonline;
+	private byte[] image;
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 	public int getId() {
 		return id;
 	}
@@ -87,11 +100,6 @@ public class Users {
 		this.status = status;
 	}
 	
-	public String getIsonline() {
-		return isonline;
-	}
-	public void setIsonline(String isonline) {
-		this.isonline = isonline;
-	}
+	
 	
 }

@@ -46,7 +46,7 @@ public class LoginController {
     	List<Friend> friend=friendDAO.setonline(users.getUsername());
     	for(int i=0;i<friend.size();i++){
     		Friend online=friend.get(i);
-    		online.setIsonline('o');
+    		online.setIsonline('y');
     		friendDAO.saveOrUpdate(online);
     	}
 		List<Users> users1=usersDAO.getuser(users.getId());
