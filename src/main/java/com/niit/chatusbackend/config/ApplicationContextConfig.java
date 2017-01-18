@@ -15,14 +15,20 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.chatusbackend.dao.BlogDAO;
+import com.niit.chatusbackend.dao.ForumCommentDAO;
+import com.niit.chatusbackend.dao.ForumDAO;
 import com.niit.chatusbackend.dao.FriendDAO;
 import com.niit.chatusbackend.dao.JobDAO;
 import com.niit.chatusbackend.dao.UsersDAO;
 import com.niit.chatusbackend.dao.impl.BlogDAOImpl;
+import com.niit.chatusbackend.dao.impl.ForumCommentDAOImpl;
+import com.niit.chatusbackend.dao.impl.ForumDAOImpl;
 import com.niit.chatusbackend.dao.impl.FriendDAOImpl;
 import com.niit.chatusbackend.dao.impl.JobDAOImpl;
 import com.niit.chatusbackend.dao.impl.UsersDAOImpl;
 import com.niit.chatusbackend.model.Blog;
+import com.niit.chatusbackend.model.Forum;
+import com.niit.chatusbackend.model.ForumComment;
 import com.niit.chatusbackend.model.Friend;
 import com.niit.chatusbackend.model.Job;
 import com.niit.chatusbackend.model.Users;
@@ -68,6 +74,8 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClasses(Blog.class);
 		sessionBuilder.addAnnotatedClasses(Friend.class);
 		sessionBuilder.addAnnotatedClasses(Job.class);
+		sessionBuilder.addAnnotatedClasses(Forum.class);
+		sessionBuilder.addAnnotatedClasses(ForumComment.class);
 		System.out.println("Session");
 		
 		return sessionBuilder.buildSessionFactory();
@@ -107,5 +115,17 @@ public class ApplicationContextConfig {
 	public JobDAO getJobDao(SessionFactory sessionFactory) {
 		System.out.println("Job is done");
 			return new JobDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "forumDAO")
+	public ForumDAO getForumDao(SessionFactory sessionFactory) {
+		System.out.println("Job is done");
+			return new ForumDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "forumCommentDAO")
+	public ForumCommentDAO getForumCommentDao(SessionFactory sessionFactory) {
+		System.out.println("Job is done");
+			return new ForumCommentDAOImpl(sessionFactory);
 	}
 	}
