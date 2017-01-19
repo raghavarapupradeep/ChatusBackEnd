@@ -21,6 +21,13 @@ public class Blog {
 	private String userid;
 	private Date doc;
 	private String content;
+	private Integer bloglike;
+	public Integer getBloglike() {
+		return bloglike;
+	}
+	public void setBloglike(Integer bloglike) {
+		this.bloglike = bloglike;
+	}
 	public int getId() {
 		return id;
 	}
@@ -51,5 +58,6 @@ public class Blog {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
 
 }

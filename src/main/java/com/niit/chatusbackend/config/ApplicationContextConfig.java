@@ -15,18 +15,21 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.chatusbackend.dao.BlogDAO;
+import com.niit.chatusbackend.dao.BlogLikesDAO;
 import com.niit.chatusbackend.dao.ForumCommentDAO;
 import com.niit.chatusbackend.dao.ForumDAO;
 import com.niit.chatusbackend.dao.FriendDAO;
 import com.niit.chatusbackend.dao.JobDAO;
 import com.niit.chatusbackend.dao.UsersDAO;
 import com.niit.chatusbackend.dao.impl.BlogDAOImpl;
+import com.niit.chatusbackend.dao.impl.BlogLikesDAOImpl;
 import com.niit.chatusbackend.dao.impl.ForumCommentDAOImpl;
 import com.niit.chatusbackend.dao.impl.ForumDAOImpl;
 import com.niit.chatusbackend.dao.impl.FriendDAOImpl;
 import com.niit.chatusbackend.dao.impl.JobDAOImpl;
 import com.niit.chatusbackend.dao.impl.UsersDAOImpl;
 import com.niit.chatusbackend.model.Blog;
+import com.niit.chatusbackend.model.BlogLikes;
 import com.niit.chatusbackend.model.Forum;
 import com.niit.chatusbackend.model.ForumComment;
 import com.niit.chatusbackend.model.Friend;
@@ -76,6 +79,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClasses(Job.class);
 		sessionBuilder.addAnnotatedClasses(Forum.class);
 		sessionBuilder.addAnnotatedClasses(ForumComment.class);
+		sessionBuilder.addAnnotatedClasses(BlogLikes.class);
 		System.out.println("Session");
 		
 		return sessionBuilder.buildSessionFactory();
@@ -119,13 +123,19 @@ public class ApplicationContextConfig {
 	@Autowired
 	@Bean(name = "forumDAO")
 	public ForumDAO getForumDao(SessionFactory sessionFactory) {
-		System.out.println("Job is done");
+		System.out.println("Forum is done");
 			return new ForumDAOImpl(sessionFactory);
 	}
 	@Autowired
 	@Bean(name = "forumCommentDAO")
 	public ForumCommentDAO getForumCommentDao(SessionFactory sessionFactory) {
-		System.out.println("Job is done");
+		System.out.println("Forum Comment is done");
 			return new ForumCommentDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "blogLikesDAO")
+	public BlogLikesDAO getBlogLikesDao(SessionFactory sessionFactory) {
+		System.out.println("BlogLikes is done");
+			return new BlogLikesDAOImpl(sessionFactory);
 	}
 	}
