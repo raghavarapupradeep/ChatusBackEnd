@@ -22,6 +22,13 @@ public class Blog {
 	private Date doc;
 	private String content;
 	private Integer bloglike;
+	private String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public Integer getBloglike() {
 		return bloglike;
 	}

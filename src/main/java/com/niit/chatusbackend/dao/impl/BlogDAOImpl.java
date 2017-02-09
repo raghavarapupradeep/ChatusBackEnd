@@ -48,6 +48,7 @@ public class BlogDAOImpl implements BlogDAO {
 		List<Blog> list=c.list();
 		return list;
 	}
+	
 	@Transactional
 	public Blog get(int id) {
 		String hql = "from Blog where id='"+ id+"'" ;
@@ -61,6 +62,19 @@ public class BlogDAOImpl implements BlogDAO {
 		else
 		{
 			return list.get(0);
+		}
+	}
+	@Transactional
+	public List<Blog> userlist() {
+		String hql= "from Blog where status='a'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Blog> list=query.list();
+		if(list==null){
+		return null;
+		}
+		else{
+			return list;
+		
 		}
 	}
 

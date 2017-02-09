@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.chatusbackend.dao.ForumDAO;
+
 import com.niit.chatusbackend.model.Forum;
 
 @RestController
@@ -25,7 +26,11 @@ public class ForumController {
 	ForumDAO forumDAO;
 	@PostMapping("/createforum")
 	public ResponseEntity<Forum> createforum(@RequestBody Forum forum,HttpSession session){
+		System.out.println("hello");
+		/*String name=forum.getName();
+		System.out.println(name);*/
 		String uid=(String) session.getAttribute("username");
+		forum.setStatus("n");
 		forum.setDoc(new Date());
 		forum.setUserid(uid);
 		forumDAO.saveOrUpdate(forum);
@@ -34,8 +39,8 @@ public class ForumController {
 	
 	@GetMapping(value="/forum")
 	public ResponseEntity<List<Forum>> listforum(){
-		System.out.println("list of blog");
-		List<Forum> forum =forumDAO.list();
+		System.out.println("list of forum");
+		List<Forum> forum =forumDAO.userlist();
 		return new ResponseEntity<List<Forum>>(forum,HttpStatus.OK);
 	}
 	@DeleteMapping(value="/deleteforum/{forumid}")
@@ -46,7 +51,27 @@ public class ForumController {
 	}
 	@GetMapping(value="/individualforum/{id}")
 	public ResponseEntity<Forum> individualforum(@PathVariable("id") int id){
-		Forum forum=forumDAO.getforum(id);
+		Forum forum=forumDAO.get(id);
 		return new ResponseEntity<Forum>(forum,HttpStatus.OK);
+	}
+	@GetMapping(value="/adminforum")
+	public ResponseEntity<List<Forum>> adminforum(){
+		System.out.println("list of forums");
+		List<Forum> forum =forumDAO.list();
+		return new ResponseEntity<List<Forum>>(forum,HttpStatus.OK);
+	}
+	@PostMapping(value="/acceptforum/{id}")
+	public ResponseEntity<Forum> accept(@PathVariable("id") int id){
+		Forum forum=forumDAO.getforum(id);
+		forum.setStatus("a");
+		forumDAO.saveOrUpdate(forum);
+		return new ResponseEntity<Forum>(HttpStatus.OK);	
+	}
+	@PostMapping(value="/rejectforum/{id}")
+	public ResponseEntity<Forum> reject(@PathVariable("id") int id){
+		Forum forum=forumDAO.getforum(id);
+		forum.setStatus("r");
+		forumDAO.saveOrUpdate(forum);
+		return new ResponseEntity<Forum>(HttpStatus.OK);	
 	}
 }

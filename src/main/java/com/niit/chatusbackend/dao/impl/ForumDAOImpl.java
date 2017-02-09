@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.chatusbackend.dao.ForumDAO;
+import com.niit.chatusbackend.model.Blog;
 import com.niit.chatusbackend.model.Forum;
 
 @Repository(value="forumDAO")
@@ -44,8 +45,9 @@ public class ForumDAOImpl implements ForumDAO {
 			return false;
 		}
 	}
-@Transactional
+
 	@SuppressWarnings("deprecation")
+	@Transactional
 	public List<Forum> list() {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Forum.class);
 		@SuppressWarnings("unchecked")
@@ -68,5 +70,33 @@ public class ForumDAOImpl implements ForumDAO {
 			return list.get(0);
 		}
 	}
+@Transactional
+public List<Forum> userlist() {
+	String hql= "from Forum where status='a'";
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	List<Forum> list=query.list();
+	if(list==null){
+	return null;
+	}
+	else{
+		return list;
+	
+	}
+}
 
+@Transactional
+public Forum get(int id) {
+	String hql = "from Forum where id='"+ id+"'" ;
+	Query query=sessionFactory.getCurrentSession().createQuery(hql);
+	List<Forum>list= query.list();
+	
+	if(list==null)
+	{
+		return null;
+	}
+	else
+	{
+		return list.get(0);
+	}
+}
 }
